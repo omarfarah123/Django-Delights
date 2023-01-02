@@ -36,4 +36,15 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=25)
     quantity = models.DecimalField(default=0)
     unit = models.CharField(max_length=8, choices=UNIT_CHOICES, default=NONUNIT)
+
+
+class MenuItem(models.Model):
+    title = models.CharField(max_length=40)
+    price = models.DecimalField(decimal_places=2)
+
+
+class RecipieRequirement(models.Model):
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+    Ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    quantity = models.DecimalField(decimal_places=1)
     
