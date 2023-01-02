@@ -34,16 +34,25 @@ class Ingredient(models.Model):
     ]
 
     name = models.CharField(max_length=25)
-    quantity = models.DecimalField(default=0)
+    quantity = models.DecimalField(decimal_places=1, max_digits=5, default=0)
     unit = models.CharField(max_length=8, choices=UNIT_CHOICES, default=NONUNIT)
 
+    def __str__(self):
+        return f"Ingredient {self.name} Quantity In Stock {self.quantity} {self.unit}"
 
 class MenuItem(models.Model):
     title = models.CharField(max_length=40)
-    price = models.DecimalField(decimal_places=2)
+    price = models.DecimalField(decimal_places=2, max_digits=6, default=0.00)
     
-    
+    def __str__(self):
+        return f"Title {self.title} Price {self.price}"
+
 class RecipieRequirment(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    quantity = models.DecimalField(decimal_places=1)
+    quantity = models.DecimalField(decimal_places=1, max_digits=6, default=0.0)
+    def __str__(self):
+        return f"Menu Item {self.menu_item} Ingredient {self.ingredient} Quantity Required for {self.menu_item} {self.quantity}"
+
+
+ 
