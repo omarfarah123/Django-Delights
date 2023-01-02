@@ -36,7 +36,7 @@ class Ingredient(models.Model):
     name = models.CharField(max_length=25)
     quantity = models.DecimalField(decimal_places=1, max_digits=5, default=0)
     unit = models.CharField(max_length=8, choices=UNIT_CHOICES, default=NONUNIT)
-
+    unit_price = models.DecimalField(decimal_places=2, max_digits=6, default=0.00)
     def __str__(self):
         return f"Ingredient {self.name} Quantity In Stock {self.quantity} {self.unit}"
 
