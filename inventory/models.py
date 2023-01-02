@@ -54,5 +54,10 @@ class RecipieRequirment(models.Model):
     def __str__(self):
         return f"Menu Item {self.menu_item} Ingredient {self.ingredient} Quantity Required for {self.menu_item} {self.quantity}"
 
+class Purchase(models.Model):
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return f"Menu Item Purchased {self.menu_item} at {self.timestamp}"
 
  
