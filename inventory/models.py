@@ -41,10 +41,9 @@ class Ingredient(models.Model):
 class MenuItem(models.Model):
     title = models.CharField(max_length=40)
     price = models.DecimalField(decimal_places=2)
-
-
-class RecipieRequirement(models.Model):
-    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
-    Ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    quantity = models.DecimalField(decimal_places=1)
     
+    
+class RecipieRequirment(models.Model):
+    menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
+    quantity = models.DecimalField(decimal_places=1)
