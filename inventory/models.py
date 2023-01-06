@@ -47,7 +47,7 @@ class MenuItem(models.Model):
     def __str__(self):
         return f"Title {self.title} Price {self.price}"
 
-class RecipieRequirment(models.Model):
+class RecipeRequirment(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quantity = models.DecimalField(decimal_places=1, max_digits=6, default=0.0)
