@@ -14,11 +14,11 @@ class HomeView(TemplateView):
         context["RecipeRequirment"] = RecipeRequirment.objects.all()
         return context
 
-class IngredientList(ListView):
+class IngredientListView(ListView):
     model = Ingredient
     template_name = "inventory/ingredients.html"
 
-class IngredientsCreate(CreateView):
+class IngredientCreateView(CreateView):
     model = Ingredient
     template_name = "inventory/add_ingredient.html"
     form_class = IngredientCreateForm
@@ -33,58 +33,58 @@ class IngredientDeleteView(DeleteView):
     template_name = "inventory/delete_ingredient.html"
     success_url = "inventory/ingredients.html"
 
-class MenuItemView(ListView):
+class MenuItemListView(ListView):
     model = MenuItem
     template_name = "inventory/menu.html"
 
-class MenuItemCreate(CreateView):
+class MenuItemCreateView(CreateView):
     model = MenuItem
     template_name = "inventory/add_menu_item.html"
     form_class = MenuItemCreateForm
 
-class MenuItemUpdate(UpdateView):
+class MenuItemUpdateView(UpdateView):
     model = MenuItem
     template_name = "inventory/update_menu_item.html"
     form_class = MenuItemUpdateForm
 
-class MenuItemDelete(DeleteView):
+class MenuItemDeleteView(DeleteView):
     model = MenuItem
     template_name = "inventory/delete_menu_item.html"
     success_url = "inventory/menu.html"
 
-class RecipeRequirmentsView(ListView):
+class RecipeRequirmentListView(ListView):
     model = RecipeRequirment
     template_name = "inventory/recipie_requirments.html"
 
-class RecipeRequirmentCreate(CreateView):
+class RecipeRequirmentCreateView(CreateView):
     model = RecipeRequirment
     template_name = "inventory/add_recipe_requirment.html"
     form_class = RecipieRequirmentCreateForm
 
-class RecipeRequirmentUpdate(UpdateView):
+class RecipeRequirmentUpdateView(UpdateView):
     model = RecipeRequirment
     template_name = "inventory/update_recipe_requirment.html"
     form_class = RecipieRequirmentUpdateForm
 
-class RecipeRequirmentDelete(DeleteView):
+class RecipeRequirmentDeleteView(DeleteView):
     model = RecipeRequirment
     template_name = "inventory/delete_recipe_requirment.html"
 
-class PurchaseList(ListView):
+class PurchaseListView(ListView):
     model = Purchase
     template_name = "inventory/purchases.html"
 
-class PurchaseCreate(CreateView):
+class PurchaseCreateView(CreateView):
     model = Purchase
     template_name = "inventory/add_purchase.html"
     form_class = PurchaseCreateForm
 
-class PurchaseUpdate(UpdateView):
+class PurchaseUpdateView(UpdateView):
     model = Purchase
     template_name = "inventory/update_purchase.html"
     form_class = PurchaseUpdateForm
 
-class PurchaseDelete(DeleteView):
+class PurchaseDeleteView(DeleteView):
     model = Purchase
     template_name = "inventory/delete_purchase.html"
     success_url = "inventory/purchases.html"
