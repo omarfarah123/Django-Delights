@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333;
+    background-color: rgb(31, 115, 185);
     color: #fff;
     padding: 20px;
 }
@@ -24,3 +24,7 @@
 .navbar-right a {
     margin-left: 20px;
 }
+table {
+    display: flex;
+    flex-wrap: wrap;
+  }

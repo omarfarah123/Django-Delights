@@ -1,0 +1,18 @@
+{% extends 'inventory/base.html' %} 
+{% load static %}
+{% block content %}
+<div class="home">
+<table> 
+    <tr>
+      <th>Menu Item</th>
+      <th>Price</th>
+    </tr>
+    {% for menuitem in menuitems %}
+        <tr>
+            <td>{{ menuitem.title }}</td>
+            <td>{{ menuitem.price }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

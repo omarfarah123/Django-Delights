@@ -9,15 +9,18 @@
     <title>Django Delights</title>
 </head>
 <body>
+    <h1 class="apptitle">Django Delights</h1>
     <nav class="navbar">
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'menuitems' %}">Menu</a>
         <a href="{% url 'ingredients' %}">Ingredients</a>
         <a href="{% url 'purchases' %}">Purchases</a>
-        <a href="{$ url 'finances' $}">Financial</a>
+        <a href="{% url 'finance' %}">Finances</a>
     </nav>
-    {% blockcontent %}
+    <main>
+        {% block content %}
 
-    {% endblock %}
+        {% endblock %}
+    </main>
 </body>
 </html>
