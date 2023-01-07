@@ -9,9 +9,9 @@ class HomeView(TemplateView):
 
     def get_context_data(self):
         context = super().get_context_data()
-        context["Ingredient"] = Ingredient.objects.all()
-        context["MenuItem"] = MenuItem.objects.all()
-        context["RecipeRequirment"] = RecipeRequirment.objects.all()
+        context["ingredients"] = Ingredient.objects.all()
+        context["menuitems"] = MenuItem.objects.all()
+        context["reciperequirments"] = RecipeRequirment.objects.all()
         return context
 
 class IngredientListView(ListView):
@@ -31,11 +31,11 @@ class IngredientUpdateView(UpdateView):
 class IngredientDeleteView(DeleteView):
     model = Ingredient
     template_name = "inventory/delete_ingredient.html"
-    success_url = "inventory/ingredients.html"
+    success_url = "ingredients"
 
 class MenuItemListView(ListView):
     model = MenuItem
-    template_name = "inventory/menu.html"
+    template_name = "inventory/menu_items.html"
 
 class MenuItemCreateView(CreateView):
     model = MenuItem
@@ -50,7 +50,7 @@ class MenuItemUpdateView(UpdateView):
 class MenuItemDeleteView(DeleteView):
     model = MenuItem
     template_name = "inventory/delete_menu_item.html"
-    success_url = "inventory/menu.html"
+    success_url = "menu_items"
 
 class RecipeRequirmentListView(ListView):
     model = RecipeRequirment
@@ -69,6 +69,7 @@ class RecipeRequirmentUpdateView(UpdateView):
 class RecipeRequirmentDeleteView(DeleteView):
     model = RecipeRequirment
     template_name = "inventory/delete_recipe_requirment.html"
+    success_url = "reciperequirments"
 
 class PurchaseListView(ListView):
     model = Purchase
@@ -87,7 +88,7 @@ class PurchaseUpdateView(UpdateView):
 class PurchaseDeleteView(DeleteView):
     model = Purchase
     template_name = "inventory/delete_purchase.html"
-    success_url = "inventory/purchases.html"
+    success_url = "purchases"
 
 def profit_vs_revenue(request):
     revenue = 0
