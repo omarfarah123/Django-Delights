@@ -8,7 +8,7 @@ urlpatterns = [
     path('ingredients/new', views.IngredientCreateView.as_view(), name='add_ingredient'),
     path('ingredients/<pk>/update', views.IngredientUpdateView.as_view(), name='update_ingredient'),
     path('ingredients/<pk>/delete', views.IngredientDeleteView.as_view(), name='delete_ingredient'),
-    path('menuitem/', views.MenuItem.as_view(), name='menuitems'),
+    path('menuitem/', views.MenuItemListView.as_view(), name='menuitems'),
     path('menuitem/new', views.MenuItemCreateView.as_view(), name='add_menuitem'),
     path('menuitem/<pk>/update', views.MenuItemUpdateView.as_view(), name='update_menuitem'),
     path('menuitem/<pk>/delete', views.MenuItemDeleteView.as_view(), name='delete_menuitem'),
@@ -20,5 +20,5 @@ urlpatterns = [
     path('reciperequirments/new', views.RecipeRequirmentCreateView.as_view(), name="add_reciperequirment"),
     path('reciperequirments/<pk>/update', views.RecipeRequirmentUpdateView.as_view(), name="update_reciperequirment"),
     path('reciperequirments<pk>/delete', views.RecipeRequirmentDeleteView.as_view(), name="delete_reciperequirment"),
-    path('finances/', views.profit_vs_revenue.as_view(), name='finances')
+    path('finances/', views.profit_vs_revenue, name='finance')
 ]
