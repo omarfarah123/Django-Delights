@@ -37,6 +37,10 @@ class Ingredient(models.Model):
     quantity = models.DecimalField(decimal_places=1, max_digits=5, default=0)
     unit = models.CharField(max_length=8, choices=UNIT_CHOICES, default=NONUNIT)
     unit_price = models.DecimalField(decimal_places=2, max_digits=6, default=0.00)
+    
+    def get_absolute_url(self):
+        return "/ingredients"
+    
     def __str__(self):
         return f"Ingredient {self.name} Quantity In Stock {self.quantity} {self.unit}"
 
@@ -44,6 +48,9 @@ class MenuItem(models.Model):
     title = models.CharField(max_length=40)
     price = models.DecimalField(decimal_places=2, max_digits=6, default=0.00)
     
+    def get_absolute_url(self):
+        return "/menuitems"
+
     def __str__(self):
         return f"Title {self.title} Price {self.price}"
 
@@ -51,12 +58,20 @@ class RecipeRequirment(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     quantity = models.DecimalField(decimal_places=1, max_digits=6, default=0.0)
+    
+    def get_absolute_url(self):
+        return "/reciperequirments"
+
     def __str__(self):
         return f"Menu Item {self.menu_item} Ingredient {self.ingredient} Quantity Required for {self.menu_item} {self.quantity}"
 
 class Purchase(models.Model):
     menu_item = models.ForeignKey(MenuItem, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now=True)
+    
+    def get_absolute_url(self):
+        return "/purchase"
+    
     def __str__(self):
         return f"Menu Item Purchased {self.menu_item} at {self.timestamp}"
 
