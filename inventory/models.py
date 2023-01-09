@@ -70,7 +70,7 @@ class Purchase(models.Model):
     timestamp = models.DateTimeField(auto_now=True)
     
     def get_absolute_url(self):
-        return "/purchase"
+        return "/purchases"
     
     def __str__(self):
         return f"Menu Item Purchased {self.menu_item} at {self.timestamp}"
