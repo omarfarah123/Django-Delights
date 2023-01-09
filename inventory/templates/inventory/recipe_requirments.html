@@ -1,0 +1,25 @@
+{% extends 'inventory/base.html' %} 
+{% load static %}
+{% block content %}
+<div class="recipe_requirments">
+    <h1>Recipe Requirments</h1>
+
+    <table> 
+        <tr>
+          <th>Menu Item</th>
+          <th>Ingredient</th>
+          <th>Quantity</th>
+         
+        </tr>
+        {% for recipe_requirment in object_list %}
+            <tr>
+                <td><a href="{% url 'update_reciperequirment' recipe_requirment.id %}">{{ recipe_requirment.menu_item }}</a></td>
+                <td>{{ recipe_requirment.ingredient }}</td>
+                <td>{{ recipe_requirment.quantity }}</td>
+                <td><a class="delete_link" href="{% url 'delete_reciperequirment' recipe_requirment.id %}">❌</a></td>
+            </tr>
+        {% endfor %}
+      </table>
+      <a href="{% url 'add_reciperequirment' %}"><button type="button" class="btn btn-success" id="add_button">Add Recipe Requirment</button></a>
+</div>
+{% endblock %}

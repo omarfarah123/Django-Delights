@@ -1,0 +1,21 @@
+{% extends 'inventory/base.html' %} 
+{% load static %}
+{% block content %}
+<div class="menu_items">
+<table> 
+    <tr>
+      <th>Menu Item</th>
+      <th>Price</th>
+    </tr>
+    {% for menuitem in object_list %}
+        <tr>
+          <td><a href="{% url 'update_menuitem' menuitem.id %}">{{ menuitem.title }}</a></td>
+            <td>{{ menuitem.price }}</td>
+            <td><a class="delete_link" href="{% url 'delete_menuitem' menuitem.id %}">❌</a></td>
+        </tr>
+    {% endfor %}
+  </table>
+  <a href="{% url 'add_menuitem' %}"><button type="button" class="btn btn-success" id="add_button">Add Menu Item</button></a>
+</div>
+{% endblock %}
+

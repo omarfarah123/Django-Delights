@@ -1,0 +1,26 @@
+{% extends 'inventory/base.html' %} 
+{% load static %}
+{% block content %}
+<div class="ingredients">
+    <h1>Ingredients</h1>
+
+    <table> 
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Unit</th>
+          <th>Unit Price</th>
+        </tr>
+        {% for ingredient in object_list %}
+            <tr>
+                <td><a href="{% url 'update_ingredient' ingredient.id %}">{{ ingredient.name }}</a></td>
+                <td>{{ ingredient.quantity }}</td>
+                <td>{{ ingredient.unit }}</td>
+                <td>{{ ingredient.unit_price}}</td>
+                <td><a class="delete_link" href="{% url 'delete_ingredient' ingredient.id %}">❌</a></td>
+            </tr>
+        {% endfor %}
+      </table>
+      <a href="{% url 'add_ingredient' %}"><button type="button" class="btn btn-success" id="add_button">Add Ingredient</button></a>
+</div>
+{% endblock %}

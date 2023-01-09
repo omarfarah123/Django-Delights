@@ -1,0 +1,23 @@
+{% extends 'inventory/base.html' %} 
+{% load static %}
+{% block content %}
+<div class="recipe_requirments">
+    <h1>Recipe Requirments</h1>
+
+    <table> 
+        <tr>
+          <th>Menu Item</th>
+          <th>Time</th>
+         
+        </tr>
+        {% for purchase in object_list %}
+            <tr>
+                <td><a href="{% url 'update_purchase' purchase.id %}">{{ purchase.menu_item }}</a></td>
+                <td>{{ purchase.timestamp }}</td>
+                <td><a class="delete_link" href="{% url 'delete_purchase' purchase.id %}">❌</a></td>
+            </tr>
+        {% endfor %}
+      </table>
+      <a href="{% url 'add_purchase' %}"><button type="button" class="btn btn-success" id="add_button">Add a purchase</button></a>
+</div>
+{% endblock %}
