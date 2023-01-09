@@ -54,17 +54,17 @@ class MenuItemDeleteView(DeleteView):
 
 class RecipeRequirmentListView(ListView):
     model = RecipeRequirment
-    template_name = "inventory/recipie_requirments.html"
+    template_name = "inventory/recipe_requirments.html"
 
 class RecipeRequirmentCreateView(CreateView):
     model = RecipeRequirment
     template_name = "inventory/add_recipe_requirment.html"
-    form_class = RecipieRequirmentCreateForm
+    form_class = RecipeRequirmentCreateForm
 
 class RecipeRequirmentUpdateView(UpdateView):
     model = RecipeRequirment
     template_name = "inventory/update_recipe_requirment.html"
-    form_class = RecipieRequirmentUpdateForm
+    form_class = RecipeRequirmentUpdateForm
 
 class RecipeRequirmentDeleteView(DeleteView):
     model = RecipeRequirment
