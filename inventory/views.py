@@ -31,7 +31,7 @@ class IngredientUpdateView(UpdateView):
 class IngredientDeleteView(DeleteView):
     model = Ingredient
     template_name = "inventory/delete_ingredient.html"
-    success_url = "ingredients"
+    success_url = "/ingredients"
 
 class MenuItemListView(ListView):
     model = MenuItem
@@ -50,7 +50,7 @@ class MenuItemUpdateView(UpdateView):
 class MenuItemDeleteView(DeleteView):
     model = MenuItem
     template_name = "inventory/delete_menu_item.html"
-    success_url = "menu_items"
+    success_url = "/menu_items"
 
 class RecipeRequirmentListView(ListView):
     model = RecipeRequirment
@@ -69,7 +69,7 @@ class RecipeRequirmentUpdateView(UpdateView):
 class RecipeRequirmentDeleteView(DeleteView):
     model = RecipeRequirment
     template_name = "inventory/delete_recipe_requirment.html"
-    success_url = "reciperequirments"
+    success_url = "/reciperequirments"
 
 class PurchaseListView(ListView):
     model = Purchase
@@ -88,7 +88,7 @@ class PurchaseUpdateView(UpdateView):
 class PurchaseDeleteView(DeleteView):
     model = Purchase
     template_name = "inventory/delete_purchase.html"
-    success_url = "purchases"
+    success_url = "/purchases"
 
 def profit_vs_revenue(request):
     revenue = 0
