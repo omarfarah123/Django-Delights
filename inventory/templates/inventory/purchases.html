@@ -2,13 +2,13 @@
 {% load static %}
 {% block content %}
 <div class="recipe_requirments">
-    <h1>Recipe Requirments</h1>
+    <h1>Purchases</h1>
 
     <table> 
         <tr>
           <th>Menu Item</th>
           <th>Time</th>
-         
+          <th>Delete</th>
         </tr>
         {% for purchase in object_list %}
             <tr>
